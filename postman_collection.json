@@ -1,0 +1,151 @@
+{
+  "info": {
+    "_postman_id": "8b9db79b-097c-4eee-b625-ae2c10a0805d",
+    "name": "Sterepay Media",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "12709443"
+  },
+  "item": [
+    {
+      "name": "New media",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "type",
+              "value": "image",
+              "type": "text"
+            },
+            {
+              "key": "title",
+              "value": "Python",
+              "type": "text"
+            },
+            {
+              "key": "description",
+              "value": "Python logo",
+              "type": "text"
+            },
+            {
+              "key": "url",
+              "value": "https://d1.awsstatic.com/asset-repository/products/amazon-rds/1024px-MySQL.ff87215b43fd7292af172e2a5d9b844217262571.png",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/media",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["media"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get media by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/media/32bf9348-91ea-4578-b6ce-b9b5dfa9b642",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["media", "32bf9348-91ea-4578-b6ce-b9b5dfa9b642"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete media by id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/media/32bf9348-91ea-4578-b6ce-b9b5dfa9b642",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["media", "32bf9348-91ea-4578-b6ce-b9b5dfa9b642"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update media status",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "status",
+              "value": "Active",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/media/a0f9ef4e-a2c0-464b-a537-61c544d5959e/status",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["media", "a0f9ef4e-a2c0-464b-a537-61c544d5959e", "status"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Media by title and description",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/media/search?query=SQL",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["media", "search"],
+          "query": [
+            {
+              "key": "query",
+              "value": "SQL"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Fetch media paginated list",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/media?page=1&perPage=2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["media"],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "perPage",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

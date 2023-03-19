@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/media": {
+      "post": {
+        "operationId": "createMedia",
+        "summary": "",
+        "description": "Create a new media object",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateMediaDto" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["media"]
+      },
+      "get": {
+        "operationId": "getPaginatedMedia",
+        "summary": "",
+        "description": "Fetch a paginated list of existing media objects",
+        "parameters": [
+          {
+            "name": "page",
+            "required": true,
+            "in": "query",
+            "schema": { "minimum": 1, "type": "number" }
+          },
+          {
+            "name": "perPage",
+            "required": true,
+            "in": "query",
+            "schema": { "minimum": 1, "type": "number" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["media"]
+      }
+    },
+    "/media/search": {
+      "get": {
+        "operationId": "getMedia",
+        "summary": "",
+        "description": "Search media by title and description",
+        "parameters": [
+          {
+            "name": "query",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["media"]
+      }
+    },
+    "/media/{id}": {
+      "get": {
+        "operationId": "getMediaById",
+        "summary": "",
+        "description": "Fetch a single media by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["media"]
+      },
+      "delete": {
+        "operationId": "deleteMediaById",
+        "summary": "",
+        "description": "Soft delete a media item by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "" } },
+        "tags": ["media"]
+      }
+    },
+    "/media/{id}/status": {
+      "patch": {
+        "operationId": "updateMediaStatus",
+        "summary": "",
+        "description": "Update an existing media status by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateMediaStatusDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "" } },
+        "tags": ["media"]
+      }
+    }
+  },
+  "info": {
+    "title": "StereoPay Media",
+    "description": "StereoPay Media API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    { "name": "stereopay", "description": "" },
+    { "name": "media", "description": "" }
+  ],
+  "servers": [
+    { "url": "http://localhost:3000", "description": "Development server" }
+  ],
+  "components": {
+    "schemas": {
+      "CreateMediaDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Media type: audio or image",
+            "enum": ["audio", "image"]
+          },
+          "title": { "type": "string", "description": "Media title" },
+          "description": {
+            "type": "string",
+            "description": "Media description"
+          },
+          "url": { "type": "string", "description": "Media hhtp url" }
+        },
+        "required": ["type", "title", "description", "url"]
+      },
+      "UpdateMediaStatusDto": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string", "enum": ["Active", "Inactive"] }
+        },
+        "required": ["status"]
+      }
+    }
+  }
+}
