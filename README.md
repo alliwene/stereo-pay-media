@@ -2,8 +2,6 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
@@ -40,7 +38,8 @@ The server will listen on port `3000`, and it exposes the following APIs:
 
 ## Swagger
 
-Swagger docs can be found at <http://localhost:3000/api> when the app is running
+Swagger docs can be found at <http://localhost:3000/api> when the app is running.
+
 Generated `swagger.json` can be found [here](swagger.json)
 
 ## SQL
