@@ -24,7 +24,7 @@
     "@nestjs/common": "^11.0.16",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
-    "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/platform-express": "^10.4.22",
     "@nestjs/swagger": "^6.2.1",
     "@nestjs/typeorm": "^9.0.1",
     "class-transformer": "^0.5.1",
